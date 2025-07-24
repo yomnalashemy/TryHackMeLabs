@@ -1,24 +1,57 @@
-*Date solved:* 20/7/2025
-*Documentation Date:* 24/7/2025
+Date Solved: 20/07/2025
 
-I solved my first ever machine on TryHackMe, yaaay!
-I'm super excited!
+Documentation Date: 24/07/2025
 
-**Here's what I learned:**
-> Gobuster is a brute-forcing tool used to discover hidden paths, files, and directories on a targeted web server.
-> In that machine, TryHackMe gave us the command to discover the fake bank’s hidden pages on the bank’s website, pages such as: Admin pages, user private pages, etc. 
-> In short, pages which aren’t supposed to be publicly accessible.
+🎉 My First Ever Machine!
+I solved my first TryHackMe machine — and I’m super excited to share what I learned!
+This challenge introduced me to the tool Gobuster, which I used to find hidden pages on a web server.
 
-*How?* 
-By iterating through a word list text file containing a list of possible directory or file names to try and find hidden paths on the web server and access these pages!
+🛠 Tool Used: Gobuster
+Gobuster is a directory brute-forcing tool. It discovers hidden files, folders, and paths on a target website by trying out a list of possible names from a wordlist.
 
-*What happens when we run that command?*
-It iterates through the word list and outputs the found paths, which exist in the website and matched in the list, with a status code! Now the status codes tell us something, depending on the status code we can know if that page/path is accessible or inaccessible, or redirects to something.
+🔍 What Was the Goal?
+The goal was to discover hidden pages on the FakeBank site.
 
-The command found the **/bank-transfer** with status code 200, 200 means this path exists and accessible. We put the full URL on the search bar, enter and BAM! You can access the sneaky hidden page which also gives us the accessibility to…transfer money!
+These pages might include:
+Admin panels
+User-specific pages
+Other sensitive or hidden endpoints
 
-I always asked myself in what we need status code for, now I know!
+📜 How Gobuster Works
+It uses a wordlist (wordlist.txt) to try out different paths.
 
-If you want to see my victory, you can check out the *success.png*. Solution is covered, of course! I want you to enjoy the challenge and feel proud of yourself!
+It sends requests like:
+http://fakebank.thm/admin
+http://fakebank.thm/secret
 
->> See ya in the next machine!
+If the page exists, it returns an HTTP status code that tells us if:
+✅ The page is accessible (200 OK)
+🚫 It’s forbidden (403)
+🔁 It redirects (301/302)
+❌ It doesn’t exist (404)
+
+💥 My Key Discovery
+Gobuster found the hidden path:
+/bank-transfer  →  [Status: 200 OK]
+That means the page exists and is accessible.
+
+When I opened it in the browser, I found a functionality to transfer money!
+
+📸 Screenshot
+Check out the image success.png to see the discovered page.
+(Flag is covered — no spoilers, cyberling! 🕵️‍♀️)
+
+🧠 What I Learned
+How directory brute-forcing works
+Why wordlists are important in web recon
+The real-life importance of HTTP status codes as indicators
+How hidden endpoints can be big security risks
+
+💬 Final Thoughts
+💡 Creating a wordlist to guess paths is genius — it felt like digital treasure hunting.
+💡 I used to ignore status codes... now I know they’re essential clues for attackers and defenders alike!
+
+🚀 What’s Next?
+This is just the beginning. I’m documenting every machine I solve here in my GitHub repo and blog — join me as I explore deeper into Red Teaming and web security!
+
+See ya in the next machine! 🔓💻
