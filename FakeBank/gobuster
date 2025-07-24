@@ -1,1 +1,24 @@
+*Date solved:* 20/7/2025
+*Documentation Date:* 24/7/2025
 
+I solved my first ever machine on TryHackMe, yaaay!
+I'm super excited!
+
+**Here's what I learned:**
+> Gobuster is a brute-forcing tool used to discover hidden paths, files, and directories on a targeted web server.
+> In that machine, TryHackMe gave us the command to discover the fake bank’s hidden pages on the bank’s website, pages such as: Admin pages, user private pages, etc. 
+> In short, pages which aren’t supposed to be publicly accessible.
+
+*How?* 
+By iterating through a word list text file containing a list of possible directory or file names to try and find hidden paths on the web server and access these pages!
+
+*What happens when we run that command?*
+It iterates through the word list and outputs the found paths, which exist in the website and matched in the list, with a status code! Now the status codes tell us something, depending on the status code we can know if that page/path is accessible or inaccessible, or redirects to something.
+
+The command found the **/bank-transfer** with status code 200, 200 means this path exists and accessible. We put the full URL on the search bar, enter and BAM! You can access the sneaky hidden page which also gives us the accessibility to…transfer money!
+
+I always asked myself in what we need status code for, now I know!
+
+If you want to see my victory, you can check out the *success.png*. Solution is covered, of course! I want you to enjoy the challenge and feel proud of yourself!
+
+>> See ya in the next machine!
